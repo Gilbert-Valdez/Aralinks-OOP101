@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AraLinks UML Class Diagram</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+html,body{background:#fff;color:#111;margin:0}
+body{padding:16px;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+h1{font-size:20px;font-weight:500;margin:0 0 4px}
+p{margin:0 0 12px;color:#444;font-size:14px}
+#wrap{overflow-x:auto;max-width:100%}
+svg text{font-family:system-ui,-apple-system,"Segoe UI",sans-serif;fill:#000;font-size:11px}
+svg .lbl{font-size:11px;font-weight:500;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+svg .ln{fill:none;stroke:#222;stroke-width:1.2}
+</style>
+</head>
+<body>
+<h1>AraLinks: UML class diagram</h1>
+<p>WAP : What A Pass &middot; OOP 101, CS-2102</p>
+<div id="wrap"></div>
+<script>
+var W=250,V='void';
+var B=[
+['User',565,30,['-userId: String','-srCode: String','-name: String','-email: String','-password: String','-university: String'],['+login(): boolean','+updateProfile(): void','+getRole(): String','+displayMenu(): void'],'&lt;&lt;abstract&gt;&gt;'],
+['Administrator',20,310,['-adminId: String'],['+manageUser(): void','+removeListing(): void','+viewRecords(): void']],
+['Tutor',380,310,['-courses: List&lt;Course&gt;','-hourlyRate: double','-availableSchedules: List&lt;Availability&gt;','-bio: String','-averageRating: double'],['+addCourse(): void','+removeCourse(): void','+setRate(): void','+addAvailability(): void','+acceptRequest(): void','+declineRequest(): void','+completeSession(): void','+computeAverageRating(): double']],
+['Learner',1140,310,['-requestsMade: List&lt;Request&gt;','-sessionHistory: List&lt;TutoringSession&gt;','-yearLevel: int','-program: String'],['+searchTutors(): List&lt;Tutor&gt;','+viewTutorProfile(): void','+submitRequest(): Request','+cancelRequest(): void','+rateSession(): Review']],
+['Availability',20,470,['-day: String','-startTime: LocalTime','-endTime: LocalTime'],['+isAvailable(): boolean']],
+['Course',380,620,['-courseId: String','-name: String','-category: String','-type: String'],['+getName(): String','+getCategory(): String','+getType(): String','+toString(): String']],
+['Request',800,310,['-requestId: String','-preferredSchedule: String','-message: String','-status: String'],['+accept(): void','+decline(): void','+isPending(): boolean','+getDetails(): String']],
+['TutoringClass',800,530,['-classId: String','-schedule: String','-maxCapacity: int','-rate: double','-classroomLink: String','-platform: String','-status: String'],['+addLearner(): void','+removeLearner(): void','+isFull(): boolean','+getAvailableSlots(): int','+setClassroomLink(): void','+startClass(): void','+endClass(): void','+getParticipants(): List']],
+['TutoringSession',800,855,['-sessionId: String','-date: LocalDate','-startTime: LocalTime','-endTime: LocalTime','-totalCost: double','-status: String'],['+schedule(): void','+markCompleted(): void','+cancel(): void','+computeCost(): double','+getDetails(): String']],
+['Review',1140,860,['-reviewId: String','-rating: int','-comment: String','-dateSubmitted: LocalDate'],['+validateRating(): boolean','+getRating(): int','+getComment(): String','+displayReview(): void']]
+];
+var s='<svg xmlns="http://www.w3.org/2000/svg" width="1420" height="1100" viewBox="0 0 1420 1100" role="img"><title>AraLinks UML class diagram</title><desc>Class diagram with orthogonal connectors</desc>';
+s+='<defs><marker id="ar" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" markerUnits="userSpaceOnUse" orient="auto"><path d="M0,0 L10,5 L0,10" fill="none" stroke="#222" stroke-width="1.2"/></marker></defs>';
+function P(d,m){return '<path class="ln" d="'+d+'"'+(m?' marker-end="url(#ar)"':'')+'/>';}
+function D(pts,f){return '<polygon points="'+pts+'" fill="'+f+'" stroke="#222" stroke-width="1.2"/>';}
+function L(t,x,y,a){return '<text class="lbl" x="'+x+'" y="'+y+'" text-anchor="'+(a||'middle')+'">'+t+'</text>';}
+s+=P('M705,262 L705,278 M145,278 L1265,278 M145,278 L145,310 M505,278 L505,310 M1265,278 L1265,310');
+s+=P('M800,370 L630,370',1)+P('M630,545 L800,545',1)+P('M800,700 L630,700',1);
+s+=P('M800,430 L660,430 L660,645 L630,645',1)+P('M800,925 L690,925 L690,765 L630,765',1)+P('M800,885 L740,885 L740,500 L630,500',1);
+s+=P('M905,807 L905,855',1)+P('M1140,400 L1050,400',1)+P('M1140,1010 L1050,1010',1)+P('M1265,860 L1265,497',1);
+s+=P('M356,520 L270,520')+P('M505,581 L505,620')+P('M1140,450 L1090,450 L1090,600 L1074,600')+P('M1140,480 L1115,480 L1115,960 L1074,960');
+s+=D('705,246 697,262 713,262','#fff')+D('380,520 368,514 356,520 368,526','#222')+D('505,557 499,569 505,581 511,569','#fff')+D('1050,600 1062,594 1074,600 1062,606','#fff')+D('1050,960 1062,954 1074,960 1062,966','#fff');
+B.forEach(function(c){
+ var n=c[0],x=c[1],y=c[2],a=c[3],m=c[4],st=c[5],hh=st?42:28,h=hh+8+a.length*15+8+m.length*15+8;
+ s+='<rect x="'+x+'" y="'+y+'" width="'+W+'" height="'+h+'" fill="#fff" stroke="#222" stroke-width="1.4"/>';
+ if(st)s+='<text x="'+(x+W/2)+'" y="'+(y+15)+'" text-anchor="middle" font-style="italic">'+st+'</text>';
+ s+='<text x="'+(x+W/2)+'" y="'+(y+(st?35:19))+'" text-anchor="middle" style="font-size:13px;font-weight:600">'+n+'</text>';
+ s+='<line x1="'+x+'" x2="'+(x+W)+'" y1="'+(y+hh)+'" y2="'+(y+hh)+'" stroke="#222"/>';
+ a.forEach(function(t,i){s+='<text x="'+(x+10)+'" y="'+(y+hh+19+i*15)+'">'+t+'</text>';});
+ var dy=y+hh+8+a.length*15+4;
+ s+='<line x1="'+x+'" x2="'+(x+W)+'" y1="'+dy+'" y2="'+dy+'" stroke="#222"/>';
+ m.forEach(function(t,i){s+='<text x="'+(x+10)+'" y="'+(dy+4+11+i*15)+'">'+t+'</text>';});
+});
+s+=L('has',313,512)+L('1',350,512,'end')+L('*',276,512,'start');
+s+=L('teaches',530,594,'start')+L('1',516,574,'start')+L('*',516,614,'start');
+s+=L('sent to',715,362)+L('*',792,386,'end')+L('1',640,386,'start');
+s+=L('creates',700,537)+L('1',640,561,'start')+L('*',792,561,'end');
+s+=L('covers',700,692)+L('*',792,716,'end')+L('1',640,716,'start');
+s+=L('about',730,422)+L('*',792,446,'end')+L('1',638,661,'start');
+s+=L('covers',745,917)+L('*',792,941,'end')+L('1',638,781,'start');
+s+=L('conducted by',702,492)+L('*',792,901,'end')+L('1',638,516,'start');
+s+=L('generates',895,835,'end')+L('0..1',913,823,'start')+L('*',913,849,'start');
+s+=L('submits',1095,392)+L('1',1136,416,'end')+L('*',1056,416,'start');
+s+=L('for',1095,1002)+L('*',1136,1026,'end')+L('1',1056,1026,'start');
+s+=L('enrolls',1115,442)+L('*',1136,466,'end')+L('1',1080,592,'start');
+s+=L('attended by',1122,720,'start')+L('*',1136,496,'end')+L('*',1082,952,'start');
+s+=L('written by',1273,690,'start')+L('*',1273,850,'start')+L('1',1273,515,'start');
+s+='</svg>';
+document.getElementById('wrap').innerHTML=s;
+</script>
+</body>
+</html>
