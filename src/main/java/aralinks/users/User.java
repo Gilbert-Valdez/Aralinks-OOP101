@@ -8,8 +8,12 @@ public abstract class User {
     private boolean active = true;
 
     protected User(String userId, String srCode, String name, String email, String password, String university) {
-        this.userId = userId; this.srCode = srCode; this.name = name;
-        this.email = email; this.password = password; this.university = university;
+        this.userId = userId; 
+        this.srCode = srCode; 
+        this.name = name;
+        this.email = email;
+        this.password = password; 
+        this.university = university;
     }
 
     public boolean login(String password) { return active && this.password.equals(password); }
