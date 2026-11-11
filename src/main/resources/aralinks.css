@@ -1,0 +1,31 @@
+
+.root {
+    -red: #F2464C;
+    -red-dark: #C4232C;
+    -ink: #3C3C3C;
+
+    -fx-font-family: "Nunito";
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-background-color: linear-gradient(to bottom, #FFF3F2, white 60%);
+}
+
+.title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+    -fx-text-fill: -ink;
+}
+
+/* 3d buttons natin to guys, yung mataba na may drop shadow na black saka red na top color*/
+.btn-primary {
+    -fx-background-color: -red-dark, -red;
+    -fx-background-insets: 0, 0 0 4 0;
+    -fx-background-radius: 16;
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-padding: 12 28;
+    -fx-cursor: hand;
+}
+.btn-primary:pressed {
+    -fx-background-insets: 4 0 0 0, 4 0 0 0;
+}

@@ -1,0 +1,54 @@
+
+.root {
+    -red: #F2464C;
+    -red-dark: #C4232C;
+    -ink: #3C3C3C;
+
+    -fx-font-family: "Nunito";
+    -fx-font-weight: bold;
+    -fx-font-size: 15px;
+    -fx-background-color: linear-gradient(to bottom, #FFF3F2, white 60%);
+}
+
+.title {
+    -fx-font-size: 28px;
+    -fx-font-weight: 900;
+    -fx-text-fill: -ink;
+}
+
+/* 3d buttons natin to guys, yung mataba na may drop shadow na black saka red na top color*/
+.btn-primary {
+    -fx-background-color: -red-dark, -red;
+    -fx-background-insets: 0, 0 0 4 0;
+    -fx-background-radius: 16;
+    -fx-text-fill: white;
+    -fx-font-weight: 900;
+    -fx-padding: 12 28;
+    -fx-cursor: hand;
+}
+.btn-primary:pressed {
+    -fx-background-insets: 4 0 0 0, 4 0 0 0;
+}
+
+.muted   { -fx-text-fill: #777777; -fx-font-size: 13px; }
+.success { -fx-text-fill: #58A700; -fx-background-color: #D7FFB8; -fx-background-radius: 12; -fx-padding: 10 12; }
+.error   { -fx-text-fill: #C4232C; -fx-background-color: #FFE6E5; -fx-background-radius: 12; -fx-padding: 10 12; }
+.card    { -fx-background-color: white; -fx-border-color: #E5E5E5; -fx-border-width: 2;
+           -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 24; }
+.text-field, .password-field { -fx-background-color: #F7F7F7; -fx-border-color: #E5E5E5; -fx-border-width: 2;
+           -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 10 14; }
+.sidebar { -fx-background-color: white; -fx-border-color: #E5E5E5; -fx-border-width: 0 2 0 0; -fx-padding: 22 14; }
+.nav     { -fx-background-color: transparent; -fx-text-fill: #777777; -fx-font-weight: 800; -fx-padding: 10 14; }
+.nav-on  { -fx-background-color: #FFE6E5; -fx-text-fill: #F2464C; -fx-background-radius: 14; }
+
+
+.muted   { -fx-text-fill: #777777; -fx-font-size: 13px; }
+.success { -fx-text-fill: #58A700; -fx-background-color: #D7FFB8; -fx-background-radius: 12; -fx-padding: 10 12; }
+.error   { -fx-text-fill: #C4232C; -fx-background-color: #FFE6E5; -fx-background-radius: 12; -fx-padding: 10 12; }
+.card    { -fx-background-color: white; -fx-border-color: #E5E5E5; -fx-border-width: 2;
+           -fx-border-radius: 18; -fx-background-radius: 18; -fx-padding: 24; }
+.text-field, .password-field { -fx-background-color: #F7F7F7; -fx-border-color: #E5E5E5; -fx-border-width: 2;
+           -fx-border-radius: 12; -fx-background-radius: 12; -fx-padding: 10 14; }
+.sidebar { -fx-background-color: white; -fx-border-color: #E5E5E5; -fx-border-width: 0 2 0 0; -fx-padding: 22 14; }
+.nav     { -fx-background-color: transparent; -fx-text-fill: #777777; -fx-font-weight: 800; -fx-padding: 10 14; }
+.nav-on  { -fx-background-color: #FFE6E5; -fx-text-fill: #F2464C; -fx-background-radius: 14; }
