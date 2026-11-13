@@ -2,11 +2,16 @@ package aralinks.users;
 
 import java.util.List;
 
+// abstract to guys para di yung mismong user object ang maiinstantaniate 
+//bale reference class lang to para yung atttributes nya is mainherit ni
+// tutor, admin and tutee 
+// kumbaga sa User class mageextend yung tatlo, pero ito mismo ay bawal instantaniate as an object user
 public abstract class User {
     private final String userId, srCode;
     private String name, email, password, university;
     private boolean active = true;
 
+// protected for the same reason kasi abstract pa i2
     protected User(String userId, String srCode, String name, String email, String password, String university) {
         this.userId = userId; 
         this.srCode = srCode; 
